@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            width:100%;
+            height:100vh;
+            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('./images/for-pc.jpeg');
+            background-position: center;
+            background-size: cover;
+            background-repeat:no-repeat;
+        }
+        .navbar{
+            width: 100%;
+            height:15vh;
+            background:rgba(0,0,0,0.4);
+            display:flex;
+            align-items: center;
+            justify-content:space-between;
+        }
+        .logo{
+            color:#fff;
+            padding:0 70px;
+            font-size:3vmin;
+            cursor: pointer;
+            user-select: none;
+        }
+        .bars{
+            display:none;
+        }
+        .menu ul li{
+            display:inline-block;
+            margin:0 7px;
+            padding-right: 20px;
+        }
+        .menu ul li a{
+            color:#fff;
+            list-style:none;
+            text-decoration:none;
+            font-size:2.55vmin;
+            background-color: transparent;
+            padding:6.5px;
+            border-radius:10px;
+            transition-property: background;
+            transition: 0.3s;
+        }
+        .menu ul li a:hover,.menu ul li a.active{
+            background-color: grey;
+        }
+        .res-nav{
+            display: none;
+        }
+        .content{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color:#fff;
+        }
+        .content h1{
+            font-size:6vmin;
+            margin-bottom: 2%;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        .content h4{
+            font-size:4vmin;
+            margin-bottom: 2%;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        .content p{
+            font-size: 3.8vmin;
+            font-family: 'Birthstone', cursive;
+        }
+        @media only screen and (max-width: 600px) {
+            body{
+                width:100%;
+                height:100vh;
+                background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('./images/for-mobile.jpeg');
+                background-position: center;
+                background-size: cover;
+                background-repeat:no-repeat;
+            }
+            .menu ul li{
+                display:none;
+                margin:0 7px;
+                padding-right: 20px;
+            }
+            .navbar{
+                width: 100%;
+                height:15vh;
+                background:rgba(0,0,0,0.4);
+                display:flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .logo{
+                color:#fff;
+                font-size:3.5vmin;
+                cursor: pointer;
+                user-select: none;
+            }
+            .res-nav{
+                width:100%;
+                height:85vh;
+                background:grey;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                text-align: center;
+                position: relative;
+                left:-100%;
+                transition-property:left;
+                transition:0.5s;
+            }
+            .res-nav ul{
+                position: relative;
+                top:-15%;
+            }
+            .res-nav ul li{
+                list-style: none;
+                margin:30px 0;
+            }   
+            .res-nav ul li a{
+                color:#fff;
+                text-decoration: none;
+                font-size:3.7vmin;
+            }
+            .res-nav ul li a.active{
+                color:#F0A500;
+            }
+            .bars{
+                display:inline;
+                position: absolute;
+                right:5%;
+                top:6vh;
+            }
+            .bars i{
+                font-size: 1rem;
+                color:#fff;
+            }
+            .show{
+                left:0;
+            }
+            .images{
+                position:relative;
+                bottom:15%;
+            }
+            .images img{
+                width:25px;
+                margin:0 10px;
+                cursor: pointer;
+            }
+            .content{
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%) scale(1.6);
+                text-align: center;
+                color:#fff;
+                z-index: -1;
+            }
+            .content h1{
+                font-size:5vmin;
+                margin-bottom: 3%;
+                letter-spacing: 2px;             
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+            .content h4{
+                font-size:4vmin;
+                margin-bottom: 2%;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+            .content p{
+                font-size: 3.5vmin;
+                font-family: 'Birthstone', cursive;
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <div class="navbar">
+           <div class="logo">
+               <h1>SIAM</h1>
+            </div>
+               <div class="bars">
+                <i class="fas fa-bars"></i>
+               </div>
+           <div class="menu">
+               <ul>
+                   <li><a href="#" class="active">Home</a></li>
+                   <li><a href="#">Services</a></li>
+                   <li><a href="#">Contact</a></li>
+                   <li><a href="#">More</a></li>
+               </ul>
+           </div>
+       </div>
+       <div class="res-nav">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">More</a></li>
+        </ul>
+        <div class="images">
+            <a target="_BLANK" href="https://www.facebook.com/profile.php?id=100060290221586"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt=""></a>
+            <a target="_BLANK" href="https://twitter.com/MDSIAM61422385"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt=""></a>
+            <a target="_BLANK" href="https://www.instagram.com/ohiduzzamansiam/"><img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png" alt=""></a>
+        </div>
+       </div>
+       <div class="content">
+            <h1>WELCOME TO MY WEBSITE</h1>
+            <h4>Learn Something New</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, nihil.</p>
+       </div>
+   </div>
+   <script>
+    $(document).ready(function(){
+        $(".bars i").click(function(){
+            $('.res-nav').toggleClass('show');
+        });
+      });
+   </script>
+<script async src="https://drv.tw/inc/wd.js"></script></body>
+</html>
